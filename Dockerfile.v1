@@ -1,0 +1,8 @@
+FROM python:3.12-alpine
+WORKDIR /kaznu-library
+COPY . .
+RUN python tools/build_report.py
+ENV REPORT_FILE="out/report.json"
+ENV BRANCH="Main"
+ENV TOP="5"
+CMD ["python", "app/server.py"]
